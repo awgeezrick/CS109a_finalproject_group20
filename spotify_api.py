@@ -21,7 +21,7 @@ import sys
 import json
 import time
 from time import sleep
-import spotify_utils_v1
+import spotify_utils
 
 import requests
 from requests.auth import AuthBase
