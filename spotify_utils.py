@@ -81,3 +81,38 @@ class Table_Generator():
             else:
                 break
         progbar.close()
+
+
+# Pickle will allow you to export a variable values and
+# then later reimport that value.
+# This can be particularly useful when using a jupyter notebook
+# and you create a history object for a network that you
+# may later want to work with.  Since createing the history object
+# can take hours, this can be a huge time saver.
+
+import pickle
+
+# Use pickle to save history for later use
+def pickle_save(variable, pickel_fileName):
+    cwd = os.getcwd()
+    Save_dir = cwd + '//pickle//'
+    Save_file = Save_dir + pickel_fileName
+    if os.path.isdir(Save_dir) == 0:
+        os.mkdir(Save_dir)
+    with open(Save_file, 'wb') as f:
+        pickle.dump(variable, f)
+
+
+# Loading a prevously saved pickle file
+def pickle_load(pickel_fileName):
+    cwd = os.getcwd()
+    pickle_file = cwd + '//pickle//' + pickel_fileName
+    # Getting back the data:
+    with open(pickle_file, 'rb') as f:
+        history = pickle.load(f)
+        return history
+
+## Example
+## pickle_save( history_p2_1,'p2_1.pkl' )
+## history_p2_1 = pickle_load('p2_1.pkl')
+## history_p2_1 = history_p2_1[0]

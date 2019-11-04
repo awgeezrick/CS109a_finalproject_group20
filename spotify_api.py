@@ -345,6 +345,8 @@ def get_tracks(uri_list:list) -> list:
         return False
     spotify_url = "https://api.spotify.com/v1/tracks/"
     response = get_spotify_list(spotify_url, uri_list)
+    if response == False:
+        return False
     return response.json().get('tracks')
 
 
