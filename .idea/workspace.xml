@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="729cbc17-dff5-427d-9e50-046536283765" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/.ipynb_checkpoints/Spotify_CleanUpDB-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/.ipynb_checkpoints/Spotify_CleanUpDB-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify_CleanUpDB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/Spotify_CleanUpDB.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/pickle/missing_tracks_in_spotify.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spotify_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_utils.py" afterDir="false" />
-    </list>
+    <list default="true" id="729cbc17-dff5-427d-9e50-046536283765" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
