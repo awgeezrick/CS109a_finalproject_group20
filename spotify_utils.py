@@ -78,6 +78,44 @@ class Table_Generator():
                 break
         progbar.close()
 
+class Table_Generator2():
+    """
+    Update: mark - improve speed for generators with single record request
+    Create batch generator for a db table that you want to interate over
+    """
+
+    def __init__(self, query, batch_size:int=50, name:str=None):
+
+        self.query        = query
+        self.batch_size   = batch_size
+        self.length       = self.query.count()
+        self.num_batches  = int(self.length / self.batch_size)+1
+        self.name         = name
+
+        print("Creating Table Generator:")
+        print("\tbatch size : ", self.batch_size)
+        print("\tlength     : ", self.length)
+        print("\tnum batches: ", self.num_batches)
+
+    def batch_generator(self) -> list:
+        offset = 0
+        end    = False
+        progbar = tqdm(total=self.length, desc=self.name)
+        while True:
+            if not end:
+                if self.batch_size == 1:
+                    record_batch = self.query.limit(self.batch_size).offset(offset).first()
+                else:
+                    record_batch = self.query.limit(self.batch_size).offset(offset).all()
+                offset += self.batch_size
+                progbar.update(len(record_batch))
+                if record_batch is None or len(record_batch) == 0 or len(record_batch) < self.batch_size:
+                    end = True
+                yield record_batch
+            else:
+                break
+        progbar.close()
+
 
 ## Example
 ## pickle_save( history_p2_1,'p2_1.pkl' )
