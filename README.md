@@ -103,3 +103,10 @@ Rashmi Meeting
   - Website for final presentation
     
       - Use github
+
+**NOTE**:
+
+To convert this to Git markdown:
+
+pandoc -f docx -t gfm Spotify\\ Project-MeetingNotes-11-3-2019.docx -o
+README.md
