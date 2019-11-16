@@ -26,6 +26,7 @@ import spotify_utils
 import requests
 from requests.auth import AuthBase
 import base64
+from tqdm import tqdm_notebook as tqdm
 
 # Create a token authentication class to help create access token
 class TokenAuth(AuthBase):
@@ -281,15 +282,15 @@ def get_spotify_list(spotify_url:str, uri_list:list):
                             params=r_dict)
 
 
-    if response.status_code == 503: # service unavailable
+    if response.status_code == 503 or response.status_code == 400: # service unavailable
         count_limit = 10
         count = 0
-        while response.status_code == 503:
+        while response.status_code != 200:
             retry_value = response.headers.get('Retry-After')
             if retry_value is None or retry_value==0:
-                retry_value = 3
-            print("{} Service Unavailable.  Waiting {} seconds".format(count_limit-count, retry_value))
-            for s in tqdm(range(retry_value+1)):
+                retry_value = 5
+            print("{} Service Unavailable.  Waiting {} seconds...".format(count_limit-count, retry_value), end='\r')
+            for s in range(retry_value+1):
                 sleep(1)
 
             # resend request
