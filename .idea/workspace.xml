@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729cbc17-dff5-427d-9e50-046536283765" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/.ipynb_checkpoints/Spotify_CleanUpDB-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/.ipynb_checkpoints/Spotify_CleanUpDB-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify-EDA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/Spotify-EDA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify_CleanUpDB.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify_DBLoad-Artists.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify_DBLoad-AudioFeatures.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Spotify_DBLoad-Songs.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/Table_List_Generator_Templates.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/Table_List_Generator_Templates.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/dummy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/pickle/eric_bad_track_uris.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/pickle/eric_mismatched_artist_uris.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/pickle/mark_missing_tracks_in_spotify.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spotify_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mark/DB_Load_and_Cleanup/Spotify_CleanUpDB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/DB_Load_and_Cleanup/Spotify_CleanUpDB.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spotify_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_api.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
