@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729cbc17-dff5-427d-9e50-046536283765" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mark/DB_Load_and_Cleanup/Spotify_CleanUpDB.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/DB_Load_and_Cleanup/Spotify_CleanUpDB.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spotify_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mark/model/Spotify_Model-AccousticVectors.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/model/Spotify_Model-AccousticVectors.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mark/model/Spotify_Recommender_Model.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/model/Spotify_Recommender_Model.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +50,30 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="CS109a_finalproject_group20" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -60,6 +86,8 @@
       <updated>1572899492432</updated>
       <workItem from="1572969153778" duration="699000" />
       <workItem from="1573129459918" duration="703000" />
+      <workItem from="1574861107927" duration="731000" />
+      <workItem from="1574863183337" duration="781000" />
     </task>
     <servers />
   </component>
