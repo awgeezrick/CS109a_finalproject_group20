@@ -8,6 +8,8 @@
 
 **Git Repo**: <https://github.com/subatis/CS109a_finalproject_group20>
 
+**Web Page**: <https://subatis.github.io/CS109a_finalproject_group20/>
+
 <table>
 <thead>
 <tr class="header">
