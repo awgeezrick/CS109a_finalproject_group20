@@ -46,7 +46,7 @@ class List_Generator():
 
 class Table_Generator():
     """
-    Create batch generator for a db table that you want to interate over
+    Create batch generator for a db table that you want to iterate over
     """
 
     def __init__(self, query, batch_size:int=50, name:str=None):
@@ -81,7 +81,7 @@ class Table_Generator():
 class Table_Generator2():
     """
     Update: mark - improve speed for generators with single record request
-    Create batch generator for a db table that you want to interate over
+    Create batch generator for a db table that you want to iterate over
     """
 
     def __init__(self, query, batch_size:int=50, name:str=None):
