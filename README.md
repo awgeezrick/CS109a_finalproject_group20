@@ -34,22 +34,39 @@ Various records needed to be deleted or changed after reviewing their validity. 
 Our project uses the Spotify Million PLaylist Dataset (MPD). The file structure consists of 10,000 .json subfiles, with each subfile containing 1,000 playlists. Each playlist object contains the following attributes:
 
 'collaborative': boolean (describes whether or not it is a collaborative playlist)
+
 'duration_ms': int (the duration of the entire playlist in milliseconds)
+
 'modified_at': int (the Unix Epoch Time value of when the playlist was last modified)
+
 'name': str (name of the playlist)
+
 'num_albums': int (number of unique albums in the playlist)
+
 'num_artists': int (number of unique artists in the playlist)
+
 'num_edits': int (number of times the playlist has been edited)
+
 'num_followers': int (number of users that follow the playlist)
+
 'num_tracks': int (number of tracks on the playlist)
+
 'pid': int (the playlist ID number, ranging from 0 - 999,999,999)
+
 'tracks': list of track objects (contains a list of tracks, where each track is an object containing the following attributes:
+
 {'album_name': str (the name of the track’s album)
+
 'album_uri': str (the unique album ID -- uniform resource identifier)
+
 'artist_name': str (the name of the artist)
+
 'artist_uri': str (the unique artist ID -- uniform resource identifier)
+
 'duration_ms': int (the duration of the track in milliseconds)
+
 'pos': int (the track’s position in the playlist)
+
 'track_name' : str (the name of the track)})
 
 ### Data Visualization
