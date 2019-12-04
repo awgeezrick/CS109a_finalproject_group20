@@ -181,7 +181,9 @@ If the size of the set intersection of G and R, is empty, then the DCG is equal 
 ## Team 
 ### Team 20: 
 Ankit Bhargava (anb1786@g.harvard.edu)
+
 Erik Subatis
+
 Mark McDonald
 ### TA Advisor: 
 Rashmi Banthia
