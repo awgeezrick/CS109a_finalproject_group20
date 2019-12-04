@@ -199,7 +199,7 @@ def get_spotify_data(db_uri: str, key: str = None):
         db_uri: - database uri value
         key: (optional) - key for which value should be returned.  If None, return entire json dictionary
     returns:
-        value of key supplied or entire json dictionart if key=None.
+        value of key supplied or entire json dictionary if key=None.
     """
 
     # build spotify url from db uri

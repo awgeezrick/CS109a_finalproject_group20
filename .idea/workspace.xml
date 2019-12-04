@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="729cbc17-dff5-427d-9e50-046536283765" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CS109a_finalproject_group20.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mark/model/Spotify_Recommender_Model-Train_Test_Split.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/mark/model/Spotify_Recommender_Model-Train_Test_Split.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spotify_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spotify_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/spotify_api.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
