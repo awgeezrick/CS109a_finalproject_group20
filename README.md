@@ -1,6 +1,5 @@
-# Spotify Recommender Project
+# Spotify Recommender Project 
 ![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-3.png)
-
 #### _**CSCI E-109A**_
 
 
@@ -64,14 +63,26 @@ There are some outliers with very long lengths, but the average playlist is 50 s
 #### Artists
 In the playlists, 296k unique artists exist:
 
+![Artists in Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-2)
+
 By examining the number of appearances in playlists, we are able to determine the popularity of Artists based on our dataset. Spotify also supplies a field called ‘artist popularity’; however, we found that a majority of Artists in our dataset had a popularity of 0, so we will not rely on the Spotify popularity data.
+
+![Artists Popularity](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-4)
+
+![Artists Popularity by Spotify](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-5)
 
 Spotify supplies genres by artist. After extracting this data, we determined that over 60% of artists had no genre assigned by Spotify, so we will not rely on this data.
 
 #### Tracks
-2.2M unique tracks can be found in the playlists.
+2.2M unique tracks can be found in the playlists
+
+![Tracks in Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-3)
+
+![Genre](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-7)
 
 After querying data from Spotify, various additional useful fields are available for each track. Values are assigned to a significant portion of the population making these features useful for building recommendation lists. Distributions of these features are available in the accompanying notebook.
+
+![Features](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-8)
 
 ## Modeling
 
@@ -157,5 +168,3 @@ Erik Subatis
 Mark McDonald
 ### TA Advisor: 
 Rashmi Banthia
-
-
