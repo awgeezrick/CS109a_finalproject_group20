@@ -1,24 +1,160 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="metadata:tags" content=""><meta name="metadata:attachments" content="Clipboard_2019-12-03-11-51-14.png, Clipboard_2019-12-03-12-38-53.png, Clipboard_2019-12-03-12-39-09.png, Clipboard_2019-12-03-13-06-19.png, Spotify_Icon_RGB_Green.pdf, Spotify_Icon_RGB_Green.png"><meta name="metadata:deleted" content="false"><meta name="metadata:favorited" content="false"><meta name="metadata:pinned" content="false"><meta name="metadata:created" content="2019-12-03T16:06:25.156Z"><meta name="metadata:modified" content="2019-12-03T22:46:33.485Z"></head><body class="theme-light"><div class="preview"><h1 id="spotify-recommender-">Spotify Recommender <img src="/Users/iankit/Downloads/iconfinder_social-12_1591852-2.png" alt="Spotify Icon"></h1><h4 id="csci-e-109a"><em><strong>CSCI E-109A</strong></em></h4><h2 id="introduction">Introduction</h2><h3 id="project-overview">Project Overview</h3><p>At its core, our project seeks to answer the question:</p><p><strong>“How do I generate a desirable playlist for a listener?”</strong></p><p>More specifically, the project seeks to answer the above question given a context consisting of one or many songs provided by the user. The result is a playlist of 20 songs that are similar to the song(s) provided by the user. The recommendations are primarily based on preferences from other users measured by other users’ playlists.</p><h3 id="data-structure">Data Structure</h3><h4 id="database">Database</h4><h4 id="project-repo-httpsgithubcomsubatiscs109a_finalproject_group20">Project Repo: <a target="_blank" href="https://github.com/subatis/CS109a_finalproject_group20">https://github.com/subatis/CS109a_finalproject_group20</a></h4><h4 id="project-database-httpsdrivegooglecomdrivefolders14obw3t3gkwpgxx3tx_oghhpxpx6iwxrc">Project Database: <a target="_blank" href="https://drive.google.com/drive/folders/14OBw3t3gKwPgxX3tx_ogHHpXpx6iWXRC">https://drive.google.com/drive/folders/14OBw3t3gKwPgxX3tx_ogHHpXpx6iWXRC</a></h4><p>The project data has been stored in a database for uniformity, speed and simplicity of access. In addition to the playlists provided, tables were added to include additional data for tracks and artists.</p><h4 id="utility-functions-and-project-api">Utility Functions and Project API</h4><p>A set of API wrappers were created to streamline access to Spotify data and the Team Database. These API’s simplify Spotify authentication and avoid the need to navigate arguments that are not relevant to the project.</p><h4 id="data-inconsistencies-and-corrections">Data Inconsistencies and Corrections</h4><p>Various records needed to be deleted or changed after reviewing their validity. Some artist URL’s had changed in Spotify and some tracks were no longer available. These changes were not extensive and did not have a major impact on the usefulness of the data.</p><h2 id="eda">EDA</h2><h3 id="data-description">Data Description</h3><p>Our project uses the Spotify Million PLaylist Dataset (MPD). The file structure consists of 10,000 .json subfiles, with each subfile containing 1,000 playlists. Each playlist object contains the following attributes:</p><p>'collaborative': boolean (describes whether or not it is a collaborative playlist)<br>
-'duration_ms': int (the duration of the entire playlist in milliseconds)<br>
-'modified_at': int (the Unix Epoch Time value of when the playlist was last modified)<br>
-'name': str (name of the playlist)<br>
-'num_albums': int (number of unique albums in the playlist)<br>
-'num_artists': int (number of unique artists in the playlist)<br>
-'num_edits': int (number of times the playlist has been edited)<br>
-'num_followers': int (number of users that follow the playlist)<br>
-'num_tracks': int (number of tracks on the playlist)<br>
-'pid': int (the playlist ID number, ranging from 0 - 999,999,999)<br>
-'tracks': list of track objects (contains a list of tracks, where each track is an object containing the following attributes:<br>
-{'album_name': str (the name of the track’s album)<br>
-'album_uri': str (the unique album ID -- uniform resource identifier)<br>
-'artist_name': str (the name of the artist)<br>
-'artist_uri': str (the unique artist ID -- uniform resource identifier)<br>
-'duration_ms': int (the duration of the track in milliseconds)<br>
-'pos': int (the track’s position in the playlist)<br>
-'track_name' : str (the name of the track)})</p><h3 id="data-visualization">Data Visualization</h3><h4 id="playlists">Playlists</h4><p>The Playlists table is extensive with 999k playlists and 66M tracks</p><p>There are some outliers with very long lengths, but the average playlist is 50 songs long and the most common length is 20.</p><h4 id="artists">Artists</h4><p>In the playlists, 296k unique artists exist:</p><p>By examining the number of appearances in playlists, we are able to determine the popularity of Artists based on our dataset. Spotify also supplies a field called ‘artist popularity’; however, we found that a majority of Artists in our dataset had a popularity of 0, so we will not rely on the Spotify popularity data.</p><p>Spotify supplies genres by artist. After extracting this data, we determined that over 60% of artists had no genre assigned by Spotify, so we will not rely on this data.</p><h4 id="tracks">Tracks</h4><p>2.2M unique tracks can be found in the playlists.</p><p>After querying data from Spotify, various additional useful fields are available for each track. Values are assigned to a significant portion of the population making these features useful for building recommendation lists. Distributions of these features are available in the accompanying notebook.</p><h2 id="modeling">Modeling</h2><h3 id="spotify-recommender-model-types">Spotify Recommender Model Types</h3><p>For recommendations, 2 types of recommendation strategies:</p><p>Content-Based</p><p>Predicts based on what a user has listened to in the past. Uses features of songs to find similar songs.<br>
-Collaborative</p><p>Predicts based on what other listeners like Focuses on what songs other users liked who also liked a chosen song.</p><h3 id="our-baseline-models">Our Baseline Models</h3><h4 id="word2vec">Word2Vec</h4><p>Word2Vec is a process that uses vectorized words to predict other words. It does this by ingesting a series of documents, parsing out the words, vectorizing the words and then using the vector representations to predict other words. The vectors are built in such a way that each word has a unique vector that is based on its usage in the documents. The result is a vector space filled with words where related words have vectors that are similar. This vector space is referred to an an embedding. This embedding is used in two common word prediction tasks: Skip-Gram and Continuous Bag of Words.</p><h5 id="skip-gram">Skip-Gram</h5><p>The Skip-Gram model asks for a single word and then predicts words surrounding the word.</p><h5 id="bag-of-words">Bag-of-Words</h5><p>The bag-of-words model asks for a series of words and will return the missing word.<br>
-For the Spotify Recommender, we will use Word2Vec to assign vectors to Songs by providing the model with a series of playlists instead of documents.</p><h5 id="embeddings">Embeddings</h5><p>The vectorized space of words is referred to as an embedding. This embedding is used to train a Skip-Gram or a Bag-of-Words model. The embedding without the models is quite useful. It represents a vectorized vocabulary of words where vectorized words can be added or subtracted from one another to find the sum or difference of their meanings. Synonyms of words are other vectors with that are nearby in the embedded space. Below, we will use this embedding to create a playlist without a model and compare it to playlists that are used with the models described above.</p><h5 id="making-a-playlist">Making a Playlist</h5><p>To make a playlist, we simply convert Songs to Vectors and then find new songs by finding other songs with similar vectors. To achieve this, we can use the Bag-of-Words or Skip-Gram approach as mentioned above. Provide a song, a Skip-Gram model can supply a playlist. Provide a list of songs, and Bag-of-Words model can give you the next song.</p><p>3 approaches using Word2Vec and Embeddings are explored:</p><ol><li>Embeddings from Playlists - Song ID - Unsupervised</li></ol><p>Here, we will take data from Spotify that included 1M playlists and the songs in each playlist. We'll use the Word2Vec process supplying playlists as documents and each song's unique id is used as the word.</p><p>After the embedding is created, we can skip the creation of building and training a BOW or Skip-Gram model. All we need to do is find vectors that are similar to a song or a list of songs.<br>
-2. Embeddings from Playlists - Song ID - BOW</p><p>We can use the same embedding to create a BOW model.<br>
-3. Embeddings from Playlists - Song ID - Skip-Gram</p><p>Let's use the embedding from the playlists and use Word2Vec to create a Skip-Gram model</p><h4 id="knn">KNN</h4><p>description of KNN classification</p><h3 id="model-scoring-and-comparisons">Model Scoring and Comparisons</h3><h4 id="introduction-to-r-precision">Introduction to R-Precision</h4><p>R-precision is the number of retrieved relevant tracks divided by the number of known relevant tracks (i.e., the number of withheld tracks):</p><p>R-precision= <code>∣∣G∩R1:|G|∣∣|G|</code></p><p>The metric is averaged across all playlists in the challenge set. This metric rewards total number of retrieved relevant tracks (regardless of order).</p><h4 id="introduction-to-normalized-discounted-cumulative-gain-ndcg">Introduction to Normalized discounted cumulative gain (NDCG)</h4><p>Discounted cumulative gain (DCG) measures the ranking quality of the recommended tracks, increasing when relevant tracks are placed higher in the list. Normalized DCG (NDCG) is determined by calculating the DCG and dividing it by the ideal DCG in which the recommended tracks are perfectly ranked:</p><p><code>DCG = rel1 + |R|∑i = 2relilog2(i+1)</code></p><p>The ideal DCG or IDCG is, on our case, equal to:</p><p><code>IDCG = 1 + |G|∑i = 21log2(i+1)</code></p><p>If the size of the set intersection of G and R, is empty, then the DCG is equal to 0. The NDCG metric is now calculated as:</p><p><code>NDCG = DCGIDCG</code></p><h4 id="how-our-models-performed">How our models performed</h4><h3 id="literature-review">Literature Review</h3><h2 id="conclusions-and-inferences">Conclusions and Inferences</h2><h2 id="team">Team</h2><h3 id="team-20">Team 20:</h3><p>Ankit Bhargava (<a target="_blank" href="mailto:anb1786@g.harvard.edu">anb1786@g.harvard.edu</a>)<br>
-Erik Subatis<br>
-Mark McDonald</p><h3 id="ta-advisor">TA Advisor:</h3><p>Rashmi Banthia</p></div></body></html>
+# Spotify Recommender ![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-3.png)
+
+#### _**CSCI E-109A**_
+
+
+## Introduction
+### Project Overview
+At its core, our project seeks to answer the question:
+
+**“How do I generate a desirable playlist for a listener?”**
+
+More specifically, the project seeks to answer the above question given a context consisting of one or many songs provided by the user. The result is a playlist of 20 songs that are similar to the song(s) provided by the user. The recommendations are primarily based on preferences from other users measured by other users’ playlists.
+
+### Data Structure
+#### Database
+
+#### Project Repo: https://github.com/subatis/CS109a_finalproject_group20
+#### Project Database: https://drive.google.com/drive/folders/14OBw3t3gKwPgxX3tx_ogHHpXpx6iWXRC
+
+The project data has been stored in a database for uniformity, speed and simplicity of access. In addition to the playlists provided, tables were added to include additional data for tracks and artists.
+
+#### Utility Functions and Project API
+
+A set of API wrappers were created to streamline access to Spotify data and the Team Database. These API’s simplify Spotify authentication and avoid the need to navigate arguments that are not relevant to the project.
+
+#### Data Inconsistencies and Corrections
+
+Various records needed to be deleted or changed after reviewing their validity. Some artist URL’s had changed in Spotify and some tracks were no longer available. These changes were not extensive and did not have a major impact on the usefulness of the data.
+
+## EDA
+
+
+### Data Description
+Our project uses the Spotify Million PLaylist Dataset (MPD). The file structure consists of 10,000 .json subfiles, with each subfile containing 1,000 playlists. Each playlist object contains the following attributes:
+
+'collaborative': boolean (describes whether or not it is a collaborative playlist)
+'duration_ms': int (the duration of the entire playlist in milliseconds)
+'modified_at': int (the Unix Epoch Time value of when the playlist was last modified)
+'name': str (name of the playlist)
+'num_albums': int (number of unique albums in the playlist)
+'num_artists': int (number of unique artists in the playlist)
+'num_edits': int (number of times the playlist has been edited)
+'num_followers': int (number of users that follow the playlist)
+'num_tracks': int (number of tracks on the playlist)
+'pid': int (the playlist ID number, ranging from 0 - 999,999,999)
+'tracks': list of track objects (contains a list of tracks, where each track is an object containing the following attributes:
+{'album_name': str (the name of the track’s album)
+'album_uri': str (the unique album ID -- uniform resource identifier)
+'artist_name': str (the name of the artist)
+'artist_uri': str (the unique artist ID -- uniform resource identifier)
+'duration_ms': int (the duration of the track in milliseconds)
+'pos': int (the track’s position in the playlist)
+'track_name' : str (the name of the track)})
+
+### Data Visualization
+#### Playlists
+The Playlists table is extensive with 999k playlists and 66M tracks
+
+![Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown)
+
+There are some outliers with very long lengths, but the average playlist is 50 songs long and the most common length is 20.
+
+#### Artists
+In the playlists, 296k unique artists exist:
+
+By examining the number of appearances in playlists, we are able to determine the popularity of Artists based on our dataset. Spotify also supplies a field called ‘artist popularity’; however, we found that a majority of Artists in our dataset had a popularity of 0, so we will not rely on the Spotify popularity data.
+
+Spotify supplies genres by artist. After extracting this data, we determined that over 60% of artists had no genre assigned by Spotify, so we will not rely on this data.
+
+#### Tracks
+2.2M unique tracks can be found in the playlists.
+
+After querying data from Spotify, various additional useful fields are available for each track. Values are assigned to a significant portion of the population making these features useful for building recommendation lists. Distributions of these features are available in the accompanying notebook.
+
+## Modeling
+
+### Spotify Recommender Model Types
+For recommendations, 2 types of recommendation strategies:
+
+Content-Based
+
+Predicts based on what a user has listened to in the past. Uses features of songs to find similar songs.
+Collaborative
+
+Predicts based on what other listeners like Focuses on what songs other users liked who also liked a chosen song. 
+
+### Our Baseline Models
+#### Word2Vec
+Word2Vec is a process that uses vectorized words to predict other words. It does this by ingesting a series of documents, parsing out the words, vectorizing the words and then using the vector representations to predict other words. The vectors are built in such a way that each word has a unique vector that is based on its usage in the documents. The result is a vector space filled with words where related words have vectors that are similar. This vector space is referred to an an embedding. This embedding is used in two common word prediction tasks: Skip-Gram and Continuous Bag of Words.
+
+##### Skip-Gram 
+The Skip-Gram model asks for a single word and then predicts words surrounding the word.
+
+##### Bag-of-Words 
+The bag-of-words model asks for a series of words and will return the missing word.
+For the Spotify Recommender, we will use Word2Vec to assign vectors to Songs by providing the model with a series of playlists instead of documents.
+
+##### Embeddings
+
+The vectorized space of words is referred to as an embedding. This embedding is used to train a Skip-Gram or a Bag-of-Words model. The embedding without the models is quite useful. It represents a vectorized vocabulary of words where vectorized words can be added or subtracted from one another to find the sum or difference of their meanings. Synonyms of words are other vectors with that are nearby in the embedded space. Below, we will use this embedding to create a playlist without a model and compare it to playlists that are used with the models described above.
+
+##### Making a Playlist
+
+To make a playlist, we simply convert Songs to Vectors and then find new songs by finding other songs with similar vectors. To achieve this, we can use the Bag-of-Words or Skip-Gram approach as mentioned above. Provide a song, a Skip-Gram model can supply a playlist. Provide a list of songs, and Bag-of-Words model can give you the next song.
+
+3 approaches using Word2Vec and Embeddings are explored:
+
+1. Embeddings from Playlists - Song ID - Unsupervised
+
+Here, we will take data from Spotify that included 1M playlists and the songs in each playlist. We'll use the Word2Vec process supplying playlists as documents and each song's unique id is used as the word. 
+
+After the embedding is created, we can skip the creation of building and training a BOW or Skip-Gram model. All we need to do is find vectors that are similar to a song or a list of songs. 
+2. Embeddings from Playlists - Song ID - BOW
+
+We can use the same embedding to create a BOW model.
+3. Embeddings from Playlists - Song ID - Skip-Gram
+
+Let's use the embedding from the playlists and use Word2Vec to create a Skip-Gram model
+
+#### KNN
+description of KNN classification
+
+### Model Scoring and Comparisons
+#### Introduction to R-Precision
+R-precision is the number of retrieved relevant tracks divided by the number of known relevant tracks (i.e., the number of withheld tracks):
+
+`R-precision = ∣∣G∩R1:|G|∣∣|G|`
+
+The metric is averaged across all playlists in the challenge set. This metric rewards total number of retrieved relevant tracks (regardless of order).
+
+#### Introduction to Normalized discounted cumulative gain (NDCG)
+Discounted cumulative gain (DCG) measures the ranking quality of the recommended tracks, increasing when relevant tracks are placed higher in the list. Normalized DCG (NDCG) is determined by calculating the DCG and dividing it by the ideal DCG in which the recommended tracks are perfectly ranked:
+
+`DCG = rel1 + |R|∑i = 2relilog2(i+1)`
+
+The ideal DCG or IDCG is, on our case, equal to:
+
+`IDCG = 1 + |G|∑i = 21log2(i+1)`
+
+If the size of the set intersection of G and R, is empty, then the DCG is equal to 0. The NDCG metric is now calculated as:
+
+`NDCG = DCGIDCG`
+
+#### How our models performed
+
+### Literature Review
+
+
+## Conclusions and Inferences
+
+
+## Team 
+### Team 20: 
+Ankit Bhargava (anb1786@g.harvard.edu)
+Erik Subatis
+Mark McDonald
+### TA Advisor: 
+Rashmi Banthia
+
+
