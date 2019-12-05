@@ -62,33 +62,33 @@ The set of CSV files was initially pulled into a SQLite database to facilitate E
 #### Playlists
 The Playlists table is extensive with 999k playlists and 66M tracks
 
-![Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown)
+![Playlists](ankit/Images/Unknown)
 
 There are some outliers with very long lengths, but the average playlist is 50 songs long and the most common length is 20.
 
 #### Artists
 In the playlists, 296k unique artists exist:
 
-![Artists in Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-2)
+![Artists in Playlists](ankit/Images/Unknown-2)
 
 By examining the number of appearances in playlists, we are able to determine the popularity of Artists based on our dataset. Spotify also supplies a field called ‘artist popularity’; however, we found that a majority of Artists in our dataset had a popularity of 0, so we will not rely on the Spotify popularity data.
 
-![Artists Popularity](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-4)
+![Artists Popularity](ankit/Images/Unknown-4)
 
-![Artists Popularity by Spotify](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-5)
+![Artists Popularity by Spotify](ankit/Images/Unknown-5)
 
 Spotify supplies genres by artist. After extracting this data, we determined that over 60% of artists had no genre assigned by Spotify, so we will not rely on this data.
 
 #### Tracks
 2.2M unique tracks can be found in the playlists
 
-![Tracks in Playlists](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-3)
+![Tracks in Playlists](ankit/Images/Unknown-3)
 
-![Genre](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-7)
+![Genre](ankit/Images/Unknown-7)
 
 After querying data from Spotify, various additional useful fields are available for each track. Values are assigned to a significant portion of the population making these features useful for building recommendation lists. Distributions of these features are available in the accompanying notebook.
 
-![Features](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/Unknown-8)
+![Features](ankit/Images/Unknown-8)
 
 ## Modeling
 
@@ -178,7 +178,7 @@ and then averaging these accuracies. Various values for k were considered, as we
 where we selected songs strictly based on neighbor proximity, and an "improved" approach where songs were selected based on frequency among
 neighbors.
 
-![KNN ACCURACY](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/knn_rprecision.png)
+![KNN ACCURACY](ankit/Images/knn_rprecision.png)
 
 Accuracy increases with greater value of k up to a point. The closest neighbors approach flattens, presumably as it begins to have enough available playlists to consistently draw 500 recommendations--the method is deterministic in that it will always choose the same songs for the test set once it has enough neighbors to choose from (since it is purely based on playlist proximity). The frequent song approach quickly outperforms the closest neighbors approach, granting R-precision of >50%, and appears optimal around the k=75 range.
 
