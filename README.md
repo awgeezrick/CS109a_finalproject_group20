@@ -1,4 +1,4 @@
-# Spotify Recommender Project 
+# Spotify Recommender Project
 ![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-3.png)
 #### _**CSCI E-109A**_
 
@@ -9,7 +9,8 @@ At its core, our project seeks to answer the question:
 
 **“How do I generate a desirable playlist for a listener?”**
 
-More specifically, the project seeks to answer the above question given a context consisting of one or many songs provided by the user. The result is a playlist of 20 songs that are similar to the song(s) provided by the user. The recommendations are primarily based on preferences from other users measured by other users’ playlists.
+More specifically, the project seeks to answer the above question given a context consisting of one or many songs provided by the user. The result is a playlist that are similar to the song(s) provided by the user. These recommendations may be drawn from similar user behavior (collaborative filtering) or
+from similar song features (content filtering).
 
 ### Data Structure
 #### Database
@@ -25,49 +26,14 @@ A set of API wrappers were created to streamline access to Spotify data and the 
 
 #### Data Inconsistencies and Corrections
 
-Various records needed to be deleted or changed after reviewing their validity. Some artist URL’s had changed in Spotify and some tracks were no longer available. These changes were not extensive and did not have a major impact on the usefulness of the data.
+Various records needed to be deleted or changed after reviewing their validity. Some artist URIs had changed in Spotify and some tracks were no longer available. These changes were not extensive and did not have a major impact on the usefulness of the data.
 
 ## EDA
 
 
 ### Data Description
-Our project uses the Spotify Million PLaylist Dataset (MPD). The file structure consists of 10,000 .json subfiles, with each subfile containing 1,000 playlists. Each playlist object contains the following attributes:
-
-'collaborative': boolean (describes whether or not it is a collaborative playlist)
-
-'duration_ms': int (the duration of the entire playlist in milliseconds)
-
-'modified_at': int (the Unix Epoch Time value of when the playlist was last modified)
-
-'name': str (name of the playlist)
-
-'num_albums': int (number of unique albums in the playlist)
-
-'num_artists': int (number of unique artists in the playlist)
-
-'num_edits': int (number of times the playlist has been edited)
-
-'num_followers': int (number of users that follow the playlist)
-
-'num_tracks': int (number of tracks on the playlist)
-
-'pid': int (the playlist ID number, ranging from 0 - 999,999,999)
-
-'tracks': list of track objects (contains a list of tracks, where each track is an object containing the following attributes:
-
-{'album_name': str (the name of the track’s album)
-
-'album_uri': str (the unique album ID -- uniform resource identifier)
-
-'artist_name': str (the name of the artist)
-
-'artist_uri': str (the unique artist ID -- uniform resource identifier)
-
-'duration_ms': int (the duration of the track in milliseconds)
-
-'pos': int (the track’s position in the playlist)
-
-'track_name' : str (the name of the track)})
+Our project uses the Spotify Million PLaylist Dataset (MPD). The file structure consists of 1,000 CSV files containing 1,000 playlists each.
+The set of CSV files was initially pulled into a SQLite database to facilitate EDA and train/test split.
 
 ### Data Visualization
 #### Playlists
@@ -111,16 +77,16 @@ Content-Based
 Predicts based on what a user has listened to in the past. Uses features of songs to find similar songs.
 Collaborative
 
-Predicts based on what other listeners like Focuses on what songs other users liked who also liked a chosen song. 
+Predicts based on what other listeners like Focuses on what songs other users liked who also liked a chosen song.
 
-### Our Baseline Models
+### Our Models
 #### Word2Vec
 Word2Vec is a process that uses vectorized words to predict other words. It does this by ingesting a series of documents, parsing out the words, vectorizing the words and then using the vector representations to predict other words. The vectors are built in such a way that each word has a unique vector that is based on its usage in the documents. The result is a vector space filled with words where related words have vectors that are similar. This vector space is referred to an an embedding. This embedding is used in two common word prediction tasks: Skip-Gram and Continuous Bag of Words.
 
-##### Skip-Gram 
+##### Skip-Gram
 The Skip-Gram model asks for a single word and then predicts words surrounding the word.
 
-##### Bag-of-Words 
+##### Bag-of-Words
 The bag-of-words model asks for a series of words and will return the missing word.
 For the Spotify Recommender, we will use Word2Vec to assign vectors to Songs by providing the model with a series of playlists instead of documents.
 
@@ -136,9 +102,9 @@ To make a playlist, we simply convert Songs to Vectors and then find new songs b
 
 1. Embeddings from Playlists - Song ID - Unsupervised
 
-Here, we will take data from Spotify that included 1M playlists and the songs in each playlist. We'll use the Word2Vec process supplying playlists as documents and each song's unique id is used as the word. 
+Here, we will take data from Spotify that included 1M playlists and the songs in each playlist. We'll use the Word2Vec process supplying playlists as documents and each song's unique id is used as the word.
 
-After the embedding is created, we can skip the creation of building and training a BOW or Skip-Gram model. All we need to do is find vectors that are similar to a song or a list of songs. 
+After the embedding is created, we can skip the creation of building and training a BOW or Skip-Gram model. All we need to do is find vectors that are similar to a song or a list of songs.
 2. Embeddings from Playlists - Song ID - BOW
 
 We can use the same embedding to create a BOW model.
@@ -146,8 +112,17 @@ We can use the same embedding to create a BOW model.
 
 Let's use the embedding from the playlists and use Word2Vec to create a Skip-Gram model
 
-#### KNN
-description of KNN classification
+#### Collaborative Filtering & kNN
+Collaborative filtering relies on similarities between user behavior to make predictions. In recommendation systems, a matrix is often encoded to represent user behavior. For this model, the matrix represents playlists (in rows) vs. songs that are present in a given playlist (in columns), where a 1 represents a song being present. Given the large volume of songs, this matrix is very sparse.
+
+This approach builds this sparse matrix using SKLearn's CountVectorizer and then uses cosine distance to make predictions using a k-nearest neighbors model. Recommendations are drawn from similar playlists while avoiding duplication with the input set. In short:
+
+1. Build a sparse matrix for playlists X tracks
+2. Fit a kNN model to this data using cosine distance
+3. Find nearest playlists using this model given a list of songs
+4. Select songs from nearest neighbor lists as recommendations
+
+Two strategies are explored for selecting songs from the nearest neighbors. The first approach simply grabs songs from the closest neighbor(s) in order of proximity. The second approach counts the frequencies of song appearances among the selected neighbors, and recommends the most frequent songs in order.
 
 ### Model Scoring and Comparisons
 #### Introduction to R-Precision
@@ -172,18 +147,32 @@ If the size of the set intersection of G and R, is empty, then the DCG is equal 
 
 #### How our models performed
 
+##### Collaborative Filtering & kNN
+We considered 100 randomly selected playlists from the 10k playlist test set. Accuracies were generally similar regardless of sample size.
+Per the original Spotify Recsys challenge, we made 500 recommendations per test playlist, and compared this to a subset of each test list
+that was withheld from input. R-precision was calculated by checking for matches between recommendations and withheld tracks per playlist,
+and then averaging these accuracies. Various values for k were considered, as well as 2 strategies for selecting tracks: a "naive" approach
+where we selected songs strictly based on neighbor proximity, and an "improved" approach where songs were selected based on frequency among
+neighbors.
+
+[INSERT ACCURACY IMAGE HERE FROM KNN NOTEBOOK]
+
+Accuracy increases with greater value of k up to a point. The closest neighbors approach flattens, presumably as it begins to have enough available playlists to consistently draw 500 recommendations--the method is deterministic in that it will always choose the same songs for the test set once it has enough neighbors to choose from (since it is purely based on playlist proximity). The frequent song approach quickly outperforms the closest neighbors approach, granting R-precision of >50%, and appears optimal around the k=75 range.
+
+We see that reasonably large k tends to benefit song recommendation. Even for the 'naive' strategy we need a sufficient number of neighbors to pull enough recommendations, and we see even greater improvent by further analyzing song frequency. It is noteworthy that this implementation takes a fairly long time to run recommendations for large numbers of data sets. SKLearn's kNN model doesn't appear well-suited toward large matrices. That said, even though we used the entire training data set here, earlier testing suggested that we could achieve solid results by training with just a portion of the data. The song recommendation strategies here were also rather slow, but that could likely be improved.
+
 ### Literature Review
 
 
 ## Conclusions and Inferences
 
 
-## Team 
-### Team 20: 
+## Team
+### Team 20:
 Ankit Bhargava (anb1786@g.harvard.edu)
 
 Erik Subatis
 
 Mark McDonald
-### TA Advisor: 
+### TA Advisor:
 Rashmi Banthia
