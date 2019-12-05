@@ -1,7 +1,29 @@
 # Spotify Recommender Project ![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-2.png)
 #### _**CSCI E-109A**_
 
-
+## Table of Contents
+* [Introduction](#introduction)
+    + [Project Overview](#project-overview)
+    + [Data Structure](#data-structure)
+      - [Database](#database)
+      - [Utility Functions and Project API](#utility-functions-and-project-api)
+      - [Data Inconsistencies and Corrections](#data-inconsistencies-and-corrections)
+  * [EDA](#eda)
+    + [Data Description](#data-description)
+    + [Data Visualization](#data-visualization)
+  * [Modeling](#modeling)
+    + [Spotify Recommender Model Types](#spotify-recommender-model-types)
+    + [Our Models](#our-models)
+      - [Word2Vec](#word2vec)
+      - [Collaborative Filtering & kNN](#collaborative-filtering---knn)
+    + [Model Scoring and Comparisons](#model-scoring-and-comparisons)
+      - [Introduction to R-Precision](#introduction-to-r-precision)
+      - [Introduction to Normalized discounted cumulative gain (NDCG)](#introduction-to-normalized-discounted-cumulative-gain--ndcg-)
+      - [How our models performed](#how-our-models-performed)
+    + [Literature Review](#literature-review)
+  * [Conclusions and Inferences](#conclusions-and-inferences)
+  * [Team](#team)
+  
 ## Introduction
 ### Project Overview
 At its core, our project seeks to answer the question:
