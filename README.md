@@ -1,5 +1,5 @@
 # CSCI E-109A Final Project: Spotify Recommender
-![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-2.png)
+![Spotify Icon](ankit/Images/iconfinder_social-12_1591852-2.png)
 
 ## Table of Contents
 * **[Introduction](#introduction)**
