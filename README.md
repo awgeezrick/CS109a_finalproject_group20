@@ -155,7 +155,7 @@ and then averaging these accuracies. Various values for k were considered, as we
 where we selected songs strictly based on neighbor proximity, and an "improved" approach where songs were selected based on frequency among
 neighbors.
 
-[INSERT ACCURACY IMAGE HERE FROM KNN NOTEBOOK]
+![KNN ACCURACY](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/knn_rprecision.png)
 
 Accuracy increases with greater value of k up to a point. The closest neighbors approach flattens, presumably as it begins to have enough available playlists to consistently draw 500 recommendations--the method is deterministic in that it will always choose the same songs for the test set once it has enough neighbors to choose from (since it is purely based on playlist proximity). The frequent song approach quickly outperforms the closest neighbors approach, granting R-precision of >50%, and appears optimal around the k=75 range.
 
