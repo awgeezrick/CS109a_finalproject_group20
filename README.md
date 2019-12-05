@@ -1,18 +1,16 @@
-![spotify icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-2.png)
-# Spotify Recommender Project 
-#### _**CSCI E-109A**_
+# CSCI E-109A Final Project: Spotify Recommender![Spotify Icon](https://github.com/subatis/CS109a_finalproject_group20/blob/master/ankit/Images/iconfinder_social-12_1591852-2.png)
 
 ## Table of Contents
-* [Introduction](#introduction)
+* **[Introduction](#introduction)**
     + [Project Overview](#project-overview)
     + [Data Structure](#data-structure)
       - [Database](#database)
       - [Utility Functions and Project API](#utility-functions-and-project-api)
       - [Data Inconsistencies and Corrections](#data-inconsistencies-and-corrections)
-  * [EDA](#eda)
+* **[EDA](#eda)**
     + [Data Description](#data-description)
     + [Data Visualization](#data-visualization)
-  * [Modeling](#modeling)
+* **[Modeling](#modeling)**
     + [Spotify Recommender Model Types](#spotify-recommender-model-types)
     + [Our Models](#our-models)
       - [Word2Vec](#word2vec)
@@ -22,23 +20,25 @@
       - [Introduction to Normalized discounted cumulative gain (NDCG)](#introduction-to-normalized-discounted-cumulative-gain--ndcg-)
       - [How our models performed](#how-our-models-performed)
     + [Literature Review](#literature-review)
-  * [Conclusions and Inferences](#conclusions-and-inferences)
-  * [Team](#team)
-  
+* **[Conclusions and Inferences](#conclusions-and-inferences)**
+* **[Team](#team)**
+
 ## Introduction
 ### Project Overview
+The launch of iTunes in 2001 changed how people purchased their music - instead of having the sole option to buy physical or digital copies of artist albums (or compilations!), users could now buy individual songs. The second dramatic change in music consumption came with the launch of Spotify in 2008 and Apple Music, subsequently, in 2015. Since then streaming music and other audio content has become increasingly commonplace and popular. Users who subscribe to these services could now create their own playlists, giving them access to millions of songs to listen to as they see fit. The streaming services started relying on machine learning and artificial intelligence to created curated automated playlists relevant to each user's taste. This is where the focus of our project lies.
+
 At its core, our project seeks to answer the question:
 
 **“How do I generate a desirable playlist for a listener?”**
 
-More specifically, the project seeks to answer the above question given a context consisting of one or many songs provided by the user. The result is a playlist that are similar to the song(s) provided by the user. These recommendations may be drawn from similar user behavior (collaborative filtering) or
+More specifically, the project seeks to answer the above question given a context consisting of one or many Spotify tracks provided by the user. The result is a playlist that are similar to the song(s) provided by the user as an extension of user's playlist. These recommendations may be drawn from similar user behavior (collaborative filtering) or
 from similar song features (content filtering).
 
 ### Data Structure
 #### Database
 
-#### Project Repo: https://github.com/subatis/CS109a_finalproject_group20
-#### Project Database: https://drive.google.com/drive/folders/14OBw3t3gKwPgxX3tx_ogHHpXpx6iWXRC
+* Our project repo can be accessed at: https://github.com/subatis/CS109a_finalproject_group20
+* Link to the Google Drive that houses the project database: https://drive.google.com/drive/folders/14OBw3t3gKwPgxX3tx_ogHHpXpx6iWXRC
 
 The project data has been stored in a database for uniformity, speed and simplicity of access. In addition to the playlists provided, tables were added to include additional data for tracks and artists.
 
