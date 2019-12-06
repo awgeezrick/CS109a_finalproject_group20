@@ -392,6 +392,13 @@ We see that reasonably large k tends to benefit song recommendation. Even for th
 ### Literature Review 
 [(index)](#table-of-contents)
 
+Antenucci S, Boglio S Artist-driven layering and user’s behaviour impact on recommendations in a playlist continuation scenario. 2018. In Proceedings of the ACM Recommender Systems Challenge 2018 (RecSys Challenge ’18), October 2, 2018, Vancouver, BC, Canada. 6 pages
+
+Xing Zhao, Qingquan Song, James Caverlee, and Xia Hu. 2018. TrailMix: An Ensemble Recommender System for Playlist Curation and Continuation. In Proceedings of the ACM Recommender Systems Challenge 2018 (RecSys Challenge ’18), October 2, 2018, Vancouver, BC, Canada. ACM, New York, NY, USA, 6 pages
+
+Maksims Volkovs, Himanshu Rai, Zhaoyue Cheng, Ga Wu, Yichao Lu, and Scott Sanner. 2018. Two-stage Model for Automatic Playlist Continuation at Scale. In Proceedings of the ACM Recommender Systems Challenge 2018, Vancouver, Canada, 2018 (RecSys Challenge’18), 6 pages
+
+Hojin Yang, Yoonki Jeong, Minjin Choi, and Jongwuk Lee. 2018. MMCF: Multimodal Collaborative Filtering for Automatic Playlist Continuation. In Proceedings of the ACM Recommender Systems Challenge 2018 (RecSys Challenge ’18), October 2, 2018, Vancouver, BC, Canada. ACM, New York, NY, USA, 6 pages
 
 ## Conclusions and Improvements
 [(index)](#table-of-contents)
