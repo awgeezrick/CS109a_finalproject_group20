@@ -158,6 +158,57 @@ R-precision is the number of retrieved relevant tracks divided by the number of 
 
 <center>$R-precision = \frac{|G \bigcap R_{1:|G|}|}{|G|}$</center><br>
 
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>R</mi>
+  <mo>&#x2212;<!-- − --></mo>
+  <mi>p</mi>
+  <mi>r</mi>
+  <mi>e</mi>
+  <mi>c</mi>
+  <mi>i</mi>
+  <mi>s</mi>
+  <mi>i</mi>
+  <mi>o</mi>
+  <mi>n</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>G</mi>
+      <mo>&#x22C2;<!-- ⋂ --></mo>
+      <msub>
+        <mi>R</mi>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mn>1</mn>
+          <mo>:</mo>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+          <mi>G</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo stretchy="false">|</mo>
+          </mrow>
+        </mrow>
+      </msub>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+    </mrow>
+    <mrow>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>G</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+    </mrow>
+  </mfrac>
+</math>
+
+
 The metric is averaged across all playlists in the challenge set. This metric rewards total number of retrieved relevant tracks (regardless of order).
 
 #### NDGC - Normalized discounted cumulative gain
@@ -179,9 +230,8 @@ If the size of the set intersection of G and R, is empty, then the DCG is equal 
 
 ##### 1 - Word2Vec
 Scoring for the Word2Vec models included r-precision for both track and artist ocurrences as well as NDGC.  None of the models scored particularly well on any metric despite a strong subjective confirmation that the predictions were aligned with the seeded songs.  In order to provide an overall score, ranking are calculated for all 100 test playlists.  A histogram of the results is presented with an average score. 
-
 <br>
-<a href=mark/word2vec_model/Spotify_Recommender_Model-Word2Vec.ipynb>Download Jupyter Notebook</a>
+<a href=mark/word2vec_model/Spotify_Recommender_Model-Word2Vec.ipynb>Jupyter Notebook</a>
 <br>
 
 a - Embeddings
@@ -212,9 +262,8 @@ that was withheld from input. R-precision was calculated by checking for matches
 and then averaging these accuracies. Various values for k were considered, as well as 2 strategies for selecting tracks: a "naive" approach
 where we selected songs strictly based on neighbor proximity, and an "improved" approach where songs were selected based on frequency among
 neighbors.
-
 <br>
-<a href=erik/knn_model.ipynb>Download Jupyter Notebook</a>
+<a href=erik/knn_model.ipynb>Jupyter Notebook</a>
 <br>
 
 ![KNN ACCURACY](ankit/Images/knn_rprecision.png)
