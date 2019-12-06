@@ -1,16 +1,10 @@
----
-title: README
-created: '2019-12-06T11:31:54.181Z'
-modified: '2019-12-06T15:02:33.574Z'
----
-
 # CSCI E-109A Final Project: Spotify Recommender
 ![Spotify Icon](ankit/Images/iconfinder_social-12_1591852-2.png)
 
 ## Team 20
-> Ankit Bhargava (anb1786@g.harvard.edu)
-> Erik Subatis (ers739@g.harvard.edu)
-> Mark McDonald (mam4049@g.harvard.edu)
+> Ankit Bhargava (anb1786@g.harvard.edu)<br>
+> Erik Subatis (ers739@g.harvard.edu)<br>
+> Mark McDonald (mam4049@g.harvard.edu)<br>
 ### TA Advisor:
 > Rashmi Banthia
 
