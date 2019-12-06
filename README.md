@@ -180,6 +180,10 @@ If the size of the set intersection of G and R, is empty, then the DCG is equal 
 ##### 1 - Word2Vec
 Scoring for the Word2Vec models included r-precision for both track and artist ocurrences as well as NDGC.  None of the models scored particularly well on any metric despite a strong subjective confirmation that the predictions were aligned with the seeded songs.  In order to provide an overall score, ranking are calculated for all 100 test playlists.  A histogram of the results is presented with an average score. 
 
+<br>
+<a href=mark/word2vec_model/Spotify_Recommender_Model-Word2Vec.ipynb>Download Jupyter Notebook</a>
+<br>
+
 a - Embeddings
 ![EMBEDDING_METRICS](ankit/Images/a_embedding_metrics.png)
 The results don't score well; however, the subjective analysis of the results were reasonable recommendations based on the seed track.
@@ -208,6 +212,10 @@ that was withheld from input. R-precision was calculated by checking for matches
 and then averaging these accuracies. Various values for k were considered, as well as 2 strategies for selecting tracks: a "naive" approach
 where we selected songs strictly based on neighbor proximity, and an "improved" approach where songs were selected based on frequency among
 neighbors.
+
+<br>
+<a href=erik/knn_model.ipynb>Download Jupyter Notebook</a>
+<br>
 
 ![KNN ACCURACY](ankit/Images/knn_rprecision.png)
 
