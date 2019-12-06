@@ -156,6 +156,7 @@ Two strategies are explored for selecting songs from the nearest neighbors. The 
 [(index)](#table-of-contents)
 R-precision is the number of retrieved relevant tracks divided by the number of known relevant tracks (i.e., the number of withheld tracks):
 
+<br>
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>R</mi>
   <mo>&#x2212;<!-- − --></mo>
@@ -205,7 +206,7 @@ R-precision is the number of retrieved relevant tracks divided by the number of 
     </mrow>
   </mfrac>
 </math>
-
+<br>
 
 The metric is averaged across all playlists in the challenge set. This metric rewards total number of retrieved relevant tracks (regardless of order).
 
@@ -213,6 +214,7 @@ The metric is averaged across all playlists in the challenge set. This metric re
 [(index)](#table-of-contents)
 Discounted cumulative gain (DCG) measures the ranking quality of the recommended tracks, increasing when relevant tracks are placed higher in the list. Normalized DCG (NDCG) is determined by calculating the DCG and dividing it by the ideal DCG in which the recommended tracks are perfectly ranked:
 
+<br>
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>D</mi>
   <mi>C</mi>
@@ -266,9 +268,11 @@ Discounted cumulative gain (DCG) measures the ranking quality of the recommended
     </mrow>
   </mfrac>
 </math>
+<br>
 
 The ideal DCG or IDCG is, on our case, equal to:
 
+<br>
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>I</mi>
   <mi>D</mi>
@@ -311,9 +315,11 @@ The ideal DCG or IDCG is, on our case, equal to:
     </mrow>
   </mfrac>
 </math>
+<br>
 
 If the size of the set intersection of G and R, is empty, then the DCG is equal to 0. The final NDCG metric is calculated as:
 
+<br>
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>N</mi>
   <mi>D</mi>
@@ -334,6 +340,7 @@ If the size of the set intersection of G and R, is empty, then the DCG is equal 
     </mrow>
   </mfrac>
 </math>
+<br>
 
 #### How our models performed 
 [(index)](#table-of-contents)
