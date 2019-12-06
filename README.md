@@ -156,8 +156,6 @@ Two strategies are explored for selecting songs from the nearest neighbors. The 
 [(index)](#table-of-contents)
 R-precision is the number of retrieved relevant tracks divided by the number of known relevant tracks (i.e., the number of withheld tracks):
 
-<center>$R-precision = \frac{|G \bigcap R_{1:|G|}|}{|G|}$</center><br>
-
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
   <mi>R</mi>
   <mo>&#x2212;<!-- − --></mo>
@@ -215,15 +213,127 @@ The metric is averaged across all playlists in the challenge set. This metric re
 [(index)](#table-of-contents)
 Discounted cumulative gain (DCG) measures the ranking quality of the recommended tracks, increasing when relevant tracks are placed higher in the list. Normalized DCG (NDCG) is determined by calculating the DCG and dividing it by the ideal DCG in which the recommended tracks are perfectly ranked:
 
-<center>$DCG = rel_1 + \sum^{|R|}_{i=2}\frac{rel_i}{log_2(i+1)}$ </center><br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>D</mi>
+  <mi>C</mi>
+  <mi>G</mi>
+  <mo>=</mo>
+  <mi>r</mi>
+  <mi>e</mi>
+  <msub>
+    <mi>l</mi>
+    <mn>1</mn>
+  </msub>
+  <mo>+</mo>
+  <munderover>
+    <mo>&#x2211;<!-- ∑ --></mo>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>i</mi>
+      <mo>=</mo>
+      <mn>2</mn>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>R</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+    </mrow>
+  </munderover>
+  <mfrac>
+    <mrow>
+      <mi>r</mi>
+      <mi>e</mi>
+      <msub>
+        <mi>l</mi>
+        <mi>i</mi>
+      </msub>
+    </mrow>
+    <mrow>
+      <mi>l</mi>
+      <mi>o</mi>
+      <msub>
+        <mi>g</mi>
+        <mn>2</mn>
+      </msub>
+      <mo stretchy="false">(</mo>
+      <mi>i</mi>
+      <mo>+</mo>
+      <mn>1</mn>
+      <mo stretchy="false">)</mo>
+    </mrow>
+  </mfrac>
+</math>
 
 The ideal DCG or IDCG is, on our case, equal to:
 
-<center>$IDCG = 1 + \sum^{|G|}_{i=2}\frac{1}{log_2(i+1)}$</center><br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>I</mi>
+  <mi>D</mi>
+  <mi>C</mi>
+  <mi>G</mi>
+  <mo>=</mo>
+  <mn>1</mn>
+  <mo>+</mo>
+  <munderover>
+    <mo>&#x2211;<!-- ∑ --></mo>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mi>i</mi>
+      <mo>=</mo>
+      <mn>2</mn>
+    </mrow>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+      <mi>G</mi>
+      <mrow class="MJX-TeXAtom-ORD">
+        <mo stretchy="false">|</mo>
+      </mrow>
+    </mrow>
+  </munderover>
+  <mfrac>
+    <mn>1</mn>
+    <mrow>
+      <mi>l</mi>
+      <mi>o</mi>
+      <msub>
+        <mi>g</mi>
+        <mn>2</mn>
+      </msub>
+      <mo stretchy="false">(</mo>
+      <mi>i</mi>
+      <mo>+</mo>
+      <mn>1</mn>
+      <mo stretchy="false">)</mo>
+    </mrow>
+  </mfrac>
+</math>
 
 If the size of the set intersection of G and R, is empty, then the DCG is equal to 0. The final NDCG metric is calculated as:
 
-<center>$NDCG=\frac{DCG}{IDCG}$</center><br>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>N</mi>
+  <mi>D</mi>
+  <mi>C</mi>
+  <mi>G</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mrow>
+      <mi>D</mi>
+      <mi>C</mi>
+      <mi>G</mi>
+    </mrow>
+    <mrow>
+      <mi>I</mi>
+      <mi>D</mi>
+      <mi>C</mi>
+      <mi>G</mi>
+    </mrow>
+  </mfrac>
+</math>
 
 #### How our models performed 
 [(index)](#table-of-contents)
