@@ -205,7 +205,6 @@ The results for this approach are terrible both objectively and subjectively.  W
 
 This approach takes independent songs and creates vectors from the songs features.  These vectors have nothing to do with the playlists and have no other relationship to other vectors other than their cosine similarity.  If the cosine similarity defines a song then why doesn't this work?  We are overestimating our assumption that the accoustic vectors will determine a song.  We also don't account for the fact that some songs are missing features.  When a value is 0, it will have a significant impact on the calculated cosine similarity.  Additionally, we can expect confounding factors that are not included in the vector space.  Music is an artist endeavor that is difficult to quantify.  If we had a wider range of genres available in the Spotify database avaiilable, we could expect an improvement since genre reflects some artistic quality.
 
-![SUMMARY_TABLE](ankit/Images/word2vec_summary_table.png)
 ![SUMMARY_CHART](ankit/Images/word2vec_summary_chart.png)
 
 ##### 2 - Collaborative Filtering & kNN
