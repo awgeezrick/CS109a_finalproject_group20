@@ -35,7 +35,7 @@
 ## Introduction
 ### Project Overview
 [(index)](#table-of-contents)
-The launch of iTunes in 2001 changed how people purchased their music - instead of having the sole option to buy physical or digital copies of artist albums (or compilations!), users could now buy individual songs. The second dramatic change in music consumption came with the launch of Spotify in 2008 and Apple Music, subsequently, in 2015. Since then streaming music and other audio content has become increasingly commonplace and popular. Users who subscribe to these services could now create their own playlists, giving them access to millions of songs to listen to as they see fit. The streaming services started relying on machine learning and artificial intelligence to created curated automated playlists relevant to each user's taste. This is where the focus of our project lies.
+The launch of iTunes in 2001 changed how people purchased their music - instead of having the sole option to buy physical or digital copies of artist albums (or compilations!), users could now buy individual songs. The second dramatic change in music consumption came with the launch of Spotify in 2008 and Apple Music, subsequently, in 2015. Since then streaming music and other audio content has become increasingly commonplace and popular. Users who subscribe to these services could now create their own playlists, giving them access to millions of songs to listen to as they see fit. The streaming services started relying on machine learning and artificial intelligence to create curated automated playlists relevant to each user's taste. This is where the focus of our project lies.
 
 At its core, our project seeks to answer the question:
 
