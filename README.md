@@ -125,9 +125,6 @@ To make a playlist, we simply convert Songs to Vectors and then find new songs b
 
 ##### b - Bag-of-Words
 The bag-of-words model asks for a series of words and will return the missing word, or song in our case.  Bag-of-Words is a trained model based on the embedded space and is a supervised model and like skip-gram, it is collaborative-based.
-##### c - Bag-of-Words
-The bag-of-words model asks for a series of words and will return the missing word, or song in our case.  Bag-of-Words is a trained model based on the embedded space and is a supervised model and like skip-gram, it is collaborative-based.
-
 
 ##### c - Skip-Gram
 The Skip-Gram model asks for a single word and then predicts words surrounding the word.  The Skip-Gram model is trained based on the embedding of songs so this is considered a supervised model and since it is using an embedding based on playlists from other users, it is collaborative-based.
